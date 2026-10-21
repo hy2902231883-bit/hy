@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1710" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230b1710'/%3E%3Crect%20x='14'%20y='18'%20width='4'%20height='10'%20fill='%236b4a2c'/%3E%3Crect%20x='8'%20y='8'%20width='16'%20height='12'%20fill='%233f8a42'/%3E%3Crect%20x='11'%20y='4'%20width='10'%20height='6'%20fill='%235aa552'/%3E%3C/svg%3E" />
+  <title>疯狂伐木工 · 像素伐木生存</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="stage">
+      <canvas id="game" width="360" height="640" aria-label="游戏画面"></canvas>
+
+      <div id="hud" class="hud hidden">
+        <div class="topbar">
+          <div class="hp-box">
+            <svg class="ico heart" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 14S2 10.2 2 5.8C2 3.6 3.6 2 5.6 2c1 0 1.9.5 2.4 1.3C8.5 2.5 9.4 2 10.4 2 12.4 2 14 3.6 14 5.8 14 10.2 8 14 8 14z" fill="#ff6b5a"/>
+            </svg>
+            <div class="bar hp-bar"><i id="hpFill"></i><i id="shieldFill"></i></div>
+            <span id="hpText">100</span>
+          </div>
+          <div class="timer-box">
+            <span id="timerText">02:50</span>
+            <em id="timerLabel">剩余</em>
+          </div>
+          <div class="gold-box">
+            <svg class="ico coin" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" fill="#b8860b"/>
+              <circle cx="8" cy="8" r="5" fill="#f2c14e"/>
+              <path d="M8 4.2v7.6M6 6.2h3.4a1.5 1.5 0 010 3H6" stroke="#8a5a10" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span id="goldText">0</span>
+          </div>
+          <button id="btnPause" class="icon-btn" aria-label="暂停">❚❚</button>
+        </div>
+
+        <div class="xp-row">
+          <span id="lvlText">Lv.1</span>
+          <div class="bar xp-bar"><i id="xpFill"></i></div>
+        </div>
+
+        <canvas id="minimap" width="76" height="76" aria-label="小地图"></canvas>
+        <div id="modeTag" class="mode-tag">第 1 关</div>
+        <div id="objective" class="objective">目标：母树 ×1 · 树木 ×0</div>
+
+        <div class="controls">
+          <div id="joystick" class="joystick">
+            <div class="joy-ring"></div>
+            <div class="joy-cross"></div>
+            <div id="joyKnob" class="knob"></div>
+          </div>
+          <div class="right-controls">
+            <button id="btnShop" class="round-btn small" aria-label="局内商店">商店</button>
+            <button id="btnSkill" class="round-btn skill" aria-label="旋风斩">
+              <span class="skill-name">旋风斩</span>
+              <span id="skillCdText" class="skill-cd">就绪</span>
+              <i id="skillCdMask" class="skill-cd-mask"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="hint" class="hint">摇杆移动 · 靠近树木自动砍伐</div>
+      </div>
+
+      <div id="screens" class="screens"></div>
+      <div id="toast" class="toast"></div>
+    </div>
+  </div>
+
+  <script src="src/config.js"></script>
+  <script src="src/rng.js"></script>
+  <script src="src/sprites.js"></script>
+  <script src="src/world.js"></script>
+  <script src="src/render.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/save.js"></script>
+  <script src="src/ui.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>
