@@ -1,0 +1,10 @@
+{
+  "name": "crazy-lumberjack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "疯狂伐木工 · 基于 GDD V1.0 的可玩像素伐木原型（纯前端，零依赖）",
+  "scripts": {
+    "test": "node tests/sim.test.js",
+    "diag": "node tests/diag.js"
+  }
+}
