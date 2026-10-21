@@ -14,11 +14,6 @@ $RECYCLE.BIN/
 *.swo
 *~
 
-# ---- Logs / temp ----
-*.log
-*.tmp
-logs/
-
 # ---- Secrets ----
 .env
 .env.*
@@ -26,16 +21,38 @@ logs/
 *.pem
 *.key
 
-# ---- Node.js ----
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-dist/
-build/
-.next/
+# ---- AI: 数据（不入库，放 HF Hub / 对象存储 / 共享盘）----
+data/*
+!data/.gitkeep
+datasets/
+*.csv
+*.tsv
+*.parquet
+*.jsonl
+*.arrow
+*.h5
+*.npy
+*.npz
+
+# ---- AI: 权重与检查点 ----
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+checkpoints/
+models/
+
+# ---- AI: 实验产物与缓存 ----
+wandb/
+runs/
+outputs/
+mlruns/
+lightning_logs/
 .cache/
+.ipynb_checkpoints/
+*.log
 
 # ---- Python ----
 __pycache__/
@@ -50,14 +67,11 @@ env/
 .mypy_cache/
 .ruff_cache/
 
-# ---- Java / Gradle / Maven ----
-*.class
-target/
+# ---- Node.js ----
+node_modules/
+dist/
 build/
-.gradle/
+.next/
 
-# ---- Go ----
-*.exe
-*.test
-*.out
-bin/
+# ---- 其它构建产物 ----
+*.tmp
